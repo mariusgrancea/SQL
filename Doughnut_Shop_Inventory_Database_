@@ -1,0 +1,27 @@
+CREATE TABLE doughnut_shop (
+id INTEGER PRIMARY KEY, 
+name TEXT, 
+type TEXT, 
+flavour TEXT, 
+weight REAL, 
+price REAL, 
+in_stock INTEGER);
+
+INSERT INTO doughnut_shop VALUES (1, "Plain Doughnut", "baked", "vanilla", 98.5, 3.2, 29);
+INSERT INTO doughnut_shop VALUES (2, "Glazed Twist", "fried", "cinnamon", 123.6, 4, 22);
+INSERT INTO doughnut_shop VALUES (3, "Long John", "fried", "caramel", 119, 5.4, 12);
+INSERT INTO doughnut_shop VALUES (4, "Chocolate Frosted", "baked", "chocolate", 89.9, 4.59, 39);
+INSERT INTO doughnut_shop VALUES (5, "Jelly Doughnut", "baked", "raspberry", 134.6, 4.99, 33);
+INSERT INTO doughnut_shop VALUES (6, "Maple Bacon Bar", "fried", "Maple and Bacon", 187.5, 7.99, 16);
+INSERT INTO doughnut_shop VALUES (7, "Devil's Food", "baked", "milk chocolate", 80, 4.3, 14);
+INSERT INTO doughnut_shop VALUES (8, "Bear Claw", "baked", "cinnamon", 145.7, 5.69, 20);
+INSERT INTO doughnut_shop VALUES (9, "Boston Cream", "fried", "vanilla, chocolate", 132.4, 4.59, 23);
+INSERT INTO doughnut_shop VALUES (10, "Strawbery Froasted", "fried", "stawberry", 143.3, 4.59, 19);
+INSERT INTO doughnut_shop VALUES (11, "CRONUT", "fried", "vanilla", 102.8, 8.49, 35);
+INSERT INTO doughnut_shop VALUES (12, "Sugar puff", "baked", "vanilla", 80.9, 4, 34);
+INSERT INTO doughnut_shop VALUES (13, "Blueberry cake", "fried", "blueberry", 145.6, 5.89, 28);
+INSERT INTO doughnut_shop VALUES (14, "Glazed Peach", "baked", "peach", 89.9, 3.99, 34);
+INSERT INTO doughnut_shop VALUES (15, "Apple Fritter", "fried", "apple, cinnamon", 109.9, 5.69, 21);
+INSERT INTO doughnut_shop VALUES (16, "Birthday Cake", "fried", "vanilla", 249.9, 16.99, 6);
+
+SELECT * FROM doughnut_shop;
