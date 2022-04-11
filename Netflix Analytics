@@ -1,0 +1,113 @@
+-- For this project, I downloaded Netflix Movies data from Kaggle.
+-- Then I created a table to insert Netflix Movies data into.
+-- Finally, I performed analytics on the data using SQL.
+
+CREATE TABLE BIT_DB.NetflixMovies (
+id INTEGER PRIMARY KEY,
+title VARCHAR NOT NULL,
+original_title varchar NOT NULL,
+year YEAR NOT NULL,
+date_published VARCHAR NOT NULL,
+genre VARCHAR NOT NULL,
+duration INTEGER NOT NULL,
+country VARCHAR NOT NULL,
+language VARCHAR NOT NULL,
+director VARCHAR NOT NULL,
+writer VARCHAR NOT NULL,
+production_company VARCHAR NOT NULL,
+actors LONGTEXT NOT NULL,
+description LONGTEXT NOT NULL,
+avg_vote DECINAL(1,1) NOT NULL,
+votes INTEGER NOT NULL,
+budget REAL NOT NULL,
+usa_gross_income REAL,
+worldwide_gross_income REAL,
+metascore INTEGER,
+user_reviews INTEGER NOT NULL,
+critics_reviews INTEGER NOT NULL
+);
+
+-- study of the new created table - get a feel of what the table contains
+
+SELECT * FROM BIT_DB.NetflixMovies LIMIT 5;
+
+-- HOW MANY MOVIES WERE RELEASED IN 2001?
+
+SELECT COUNT(id)
+FROM BIT_DB.NetflixMovies
+WHERE year = 2001;
+
+-- WHAT MOVIES ARE A COMEDY?
+
+SELECT title
+, genre 
+FROM BIT_DB.NetflixMovies
+WHERE genre LIKE '%comedy%';
+
+-- WHAT IS THE AVERAGE NUMBER OF REVIEWS FROM THE PUBLIC?
+
+SELECT AVG(user_reviews) 
+FROM BIT_DB.NetflixMovies;
+
+
+-- WHAT IS THE SHORTEST MOVIE?
+
+SELECT title
+, duration
+FROM BIT_DB.NetflixMovies 
+ORDER BY duration ASC
+LIMIT 1;
+
+-- WHAT IS THE LONGEST MOVIE?
+
+SELECT title
+, duration
+FROM BIT_DB.NetflixMovies 
+ORDER BY duration DESC
+LIMIT 1;
+
+-- IN WHICH MOVIES DID Julia Roberts STAR?
+
+SELECT title
+, actors 
+FROM BIT_DB.NetflixMovies 
+WHERE actors LIKE '%julia roberts%';
+
+
+-- HOW MANY MOVIES WERE PRODUCED BY Fox Film Company?
+
+SELECT count(id)
+FROM BIT_DB.NetflixMovies 
+WHERE production_company LIKE '%Fox Film Company%';
+
+
+-- WHAT MOVIES WERE PRODUCED BY Pulsar Production AND HAVE THE AVERAGE VOTE OVER 5?
+
+SELECT title
+, avg_vote
+, production_company
+FROM BIT_DB.NetflixMovies 
+WHERE production_company like '%pulsar production%'
+and avg_vote>5;
+
+-- WHAT IS THE TOP 10 MOST VOTED MOVIES?
+
+SELECT title
+, votes
+FROM BIT_DB.NetflixMovies
+ORDER BY votes desc
+LIMIT 10;
+
+-- WHAT MOVIES ARE IN FRENCH?
+
+SELECT title
+, language
+FROM BIT_DB.NetflixMovies
+WHERE language LIKE 'French';
+
+-- HOW MANY MOVIES ARE IN A FOREIGN LANGUAGE? 
+
+SELECT count(id)
+FROM BIT_DB.NetflixMovies
+WHERE language not like '%english%';
+
